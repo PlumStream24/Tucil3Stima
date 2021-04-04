@@ -132,42 +132,45 @@ namespace Tucil3Stima
             //item 2 is the length
             //if error, item 1 is empty, item 2 is -1
         {
-            if (!manhattan.ContainsKey((start.Item1.Last(), end)))
+            if (manhattan.ContainsKey((start.Item1.Last(), end)))
+            {
+                if (data.Count > 0)
+                {
+                    if (data.First().Item1.Last() == end)
+                    {
+                        List<String> tempList = data.First().Item1;
+                        int pathWeight = 0;
+                        for (int i = 0; i < tempList.Count() - 1; i++)
+                        {
+                            foreach (String[] element in edges)
+                            {
+                                if (element[0] == tempList[i] && element[1] == tempList[i + 1])
+                                {
+                                    pathWeight += Convert.ToInt32(element[2]);
+                                }
+                            }
+                        }
+                        return (tempList, pathWeight);
+                    }
+                }
+                foreach (String[] element in edges)
+                {
+                    if (start.Item1.Last() == element[0] && !start.Item1.Contains(element[1]))
+                    {
+                        data.Remove(start);
+                        List<String> tempList = start.Item1.ToList();
+                        int tempWeight = start.Item2 + Convert.ToInt32(element[2]) + manhattan[(element[1], end)];
+                        tempList.Add(element[1]);
+                        data.Add((tempList, tempWeight));
+                    }
+                }
+                data.Sort((x, y) => x.Item2.CompareTo(y.Item2));
+                return AllStar(data.First(), end, data);
+            }
+            else
             {
                 return (new List<String>(), -1);
             }
-            if (data.Count > 0)
-            {
-                if (data.First().Item1.Last() == end)
-                {
-                    List<String> tempList = data.First().Item1;
-                    int pathWeight = 0;
-                    for (int i = 0; i < tempList.Count()-1; i++)
-                    {
-                        foreach(String[] element in edges)
-                        {
-                            if (element[0]==tempList[i] && element[1] == tempList[i + 1])
-                            {
-                                pathWeight += Convert.ToInt32(element[2]);
-                            }
-                        }
-                    }
-                    return (tempList, pathWeight);
-                }
-            }
-            foreach (String[] element in edges)
-            {
-                if (start.Item1.Last() == element[0] && !start.Item1.Contains(element[1]))
-                {
-                    data.Remove(start);
-                    List<String> tempList = start.Item1.ToList();
-                    int tempWeight = start.Item2 + Convert.ToInt32(element[2]) + manhattan[(element[1], end)];
-                    tempList.Add(element[1]);
-                    data.Add((tempList, tempWeight));
-                }
-            }
-            data.Sort((x, y) => x.Item2.CompareTo(y.Item2));
-            return AllStar(data.First(), end, data);
         }
 
         /*
