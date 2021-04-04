@@ -18,7 +18,7 @@ namespace Tucil3Stima
             Graph g = new Graph();
             List<List<String>> matrix = new List<List<String>>();
             
-            //read file
+            // Read file
             System.IO.StreamReader file;
             try
             {
@@ -29,6 +29,7 @@ namespace Tucil3Stima
                 return;
             }
 
+            // Make dictionary
             int index = 0;
             String line = file.ReadLine();
             foreach (String s in line.Split(' '))
@@ -37,6 +38,7 @@ namespace Tucil3Stima
                 index++;
             }
 
+            // Make adjacency matrix
             index = 0;
             while (!file.EndOfStream)
             {
@@ -49,11 +51,9 @@ namespace Tucil3Stima
                 index++;
             }
 
+            // Move matrix to graph
             g.ReadMatrix(matrix);
-            foreach (var stuff in g.edges)
-            {
-                Debug.WriteLine(stuff[0] + " " + stuff[1]);
-            }
+            g.AStar("S", "a");
 
             //Application.SetHighDpiMode(HighDpiMode.SystemAware);
             //Application.EnableVisualStyles();
