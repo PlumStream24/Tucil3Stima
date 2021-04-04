@@ -53,7 +53,10 @@ namespace Tucil3Stima
 
             // Move matrix to graph
             g.ReadMatrix(matrix);
-            g.AStar("S", "a");
+            List<String> pain = new List<String>();
+            pain.Add("S");
+            (List<String>, int) pain2 = g.AllStar((pain,0), "F", new List<(List<String>, int)>());
+            //g.AStar("S", "a");
 
             //Application.SetHighDpiMode(HighDpiMode.SystemAware);
             //Application.EnableVisualStyles();

@@ -12,7 +12,12 @@ namespace Tucil3Stima
         public int numOfVertices;      //number of vertices
         public List<String> vertices;  //list of vertices
         public List<String[]> edges;   //list of edges
+        //[[node A, node B, weight], and so on]
+        public Dictionary<(String,String),int> manhattan; //dict of the manhattan distance of each vertices to each other
+        //[[(node A, node B),weight], and so on] -> access the weight of the edge by entering the key which is (starting node, destination node)
         public Dictionary<int, String> nodeName;    //node name
+
+        //added comments for reminder
 
         // Constructor
         public Graph()
@@ -20,6 +25,7 @@ namespace Tucil3Stima
             numOfVertices = 0;
             vertices = new List<String>();
             edges = new List<String[]>();
+            manhattan = new Dictionary<(string, string), int>();
             nodeName = new Dictionary<int, String>();
         }
 
@@ -37,7 +43,7 @@ namespace Tucil3Stima
             // add edge
             String[] temp = { A, B, weight };
             edges.Add(temp);
-            vertices.Sort();
+            //vertices.Sort();
 
         }
 
@@ -60,7 +66,6 @@ namespace Tucil3Stima
             foreach (KeyValuePair<String, int> k in adjA.OrderBy(key => key.Value)) {
                 sorted.Add(k.Key, k.Value);
             }
-
             return sorted;
         }
 
@@ -77,8 +82,95 @@ namespace Tucil3Stima
                     }
                 }
             }
+            //actually initializing manhattan
+            //manhattan will consist of manhattan distance of each vert, including to themselves
+            foreach (String vert in vertices)
+            {
+                manhattan.Add((vert, vert), 0);
+                makeManhattan(vert, (vert, 0), new Dictionary<string, int>());
+            }
         }
 
+        //making manhattan
+        public void makeManhattan(String start, (String name, int weight) node, Dictionary<String, int> seen)
+        {
+            foreach (String[] element in edges)
+            {
+                if (element[0] == node.name && element[1]!=start)
+                {
+                    (String, String) temp = (start, element[1]);
+                    int tempWeight = node.weight + Convert.ToInt32(element[2]);
+                    if (manhattan.ContainsKey(temp))
+                    {
+                        if (manhattan[temp] > tempWeight)
+                        {
+                            manhattan.Remove(temp);
+                            manhattan.Add(temp, tempWeight);
+                            seen.Remove(element[1]);
+                            seen.Add(element[1], tempWeight);
+                        }
+                    }
+                    else
+                    {
+                        manhattan.Add(temp, tempWeight);
+                        seen.Add(element[1], tempWeight);
+                    }
+                }
+            }
+            while (seen.Count() > 0)
+            {
+                (String, int) tempPair = (seen.First().Key, seen.First().Value);
+                seen.Remove(tempPair.Item1);
+                makeManhattan(start, tempPair, seen);
+            }
+        }
+
+        public (List<String>, int) AllStar((List<String>,int) start, String end, List<(List<String>, int)> data) //joke name, change this later perhaps
+            //HEY NOW, YOU'RE AN ALLSTAR, PUT YOUR GAME ON, GO PLAY
+            //returns a tuple
+            //item 1 is the List of String of the path
+            //item 2 is the length
+            //if error, item 1 is empty, item 2 is -1
+        {
+            if (!manhattan.ContainsKey((start.Item1.Last(), end)))
+            {
+                return (new List<String>(), -1);
+            }
+            if (data.Count > 0)
+            {
+                if (data.First().Item1.Last() == end)
+                {
+                    List<String> tempList = data.First().Item1;
+                    int pathWeight = 0;
+                    for (int i = 0; i < tempList.Count()-1; i++)
+                    {
+                        foreach(String[] element in edges)
+                        {
+                            if (element[0]==tempList[i] && element[1] == tempList[i + 1])
+                            {
+                                pathWeight += Convert.ToInt32(element[2]);
+                            }
+                        }
+                    }
+                    return (tempList, pathWeight);
+                }
+            }
+            foreach (String[] element in edges)
+            {
+                if (start.Item1.Last() == element[0] && !start.Item1.Contains(element[1]))
+                {
+                    data.Remove(start);
+                    List<String> tempList = start.Item1.ToList();
+                    int tempWeight = start.Item2 + Convert.ToInt32(element[2]) + manhattan[(element[1], end)];
+                    tempList.Add(element[1]);
+                    data.Add((tempList, tempWeight));
+                }
+            }
+            data.Sort((x, y) => x.Item2.CompareTo(y.Item2));
+            return AllStar(data.First(), end, data);
+        }
+
+        /*
         // Calculating the estimated cost to goal
         public void Heuristic(String A, String B, ref bool[] visited, ref bool found, ref Stack<int> weight)
         {
@@ -151,7 +243,7 @@ namespace Tucil3Stima
                 Debug.Write(v + " ");
             }
             Debug.WriteLine(" ");
-        }
+        }*/
 
     }
 }
