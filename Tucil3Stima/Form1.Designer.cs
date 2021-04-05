@@ -122,6 +122,7 @@ namespace Tucil3Stima
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(18, 457);
             this.label3.Name = "label3";
@@ -131,6 +132,7 @@ namespace Tucil3Stima
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(18, 487);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -143,6 +145,8 @@ namespace Tucil3Stima
             // 
             // FileInput
             // 
+            this.FileInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FileInput.Location = new System.Drawing.Point(90, 63);
             this.FileInput.Name = "FileInput";
             this.FileInput.Size = new System.Drawing.Size(305, 23);
@@ -159,6 +163,7 @@ namespace Tucil3Stima
             // 
             // browseButton
             // 
+            this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.browseButton.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.browseButton.Location = new System.Drawing.Point(413, 63);
             this.browseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -171,6 +176,7 @@ namespace Tucil3Stima
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.Location = new System.Drawing.Point(153, 425);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(95, 23);
@@ -178,6 +184,7 @@ namespace Tucil3Stima
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox2.Location = new System.Drawing.Point(153, 454);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(95, 23);
