@@ -34,10 +34,13 @@ namespace Tucil3Stima
             this.label1 = new System.Windows.Forms.Label();
             this.gViewer1 = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.FileInput = new System.Windows.Forms.TextBox();
+            this.FileName = new System.Windows.Forms.Label();
+            this.browseButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -45,11 +48,10 @@ namespace Tucil3Stima
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(14, 439);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 523);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(886, 144);
+            this.richTextBox1.Size = new System.Drawing.Size(487, 75);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -57,9 +59,9 @@ namespace Tucil3Stima
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.Font = new System.Drawing.Font("Yu Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(250, 9);
+            this.label1.Location = new System.Drawing.Point(74, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(415, 71);
+            this.label1.Size = new System.Drawing.Size(363, 53);
             this.label1.TabIndex = 1;
             this.label1.Text = "A* Algorithm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,8 +85,9 @@ namespace Tucil3Stima
             this.gViewer1.InsertingEdge = false;
             this.gViewer1.LayoutAlgorithmSettingsButtonVisible = true;
             this.gViewer1.LayoutEditingEnabled = true;
-            this.gViewer1.Location = new System.Drawing.Point(14, 83);
+            this.gViewer1.Location = new System.Drawing.Point(12, 97);
             this.gViewer1.LooseOffsetForRouting = 0.25D;
+            this.gViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gViewer1.MouseHitDistance = 0.05D;
             this.gViewer1.Name = "gViewer1";
             this.gViewer1.NavigationVisible = true;
@@ -97,7 +100,7 @@ namespace Tucil3Stima
             this.gViewer1.SaveButtonVisible = true;
             this.gViewer1.SaveGraphButtonVisible = true;
             this.gViewer1.SaveInVectorFormatEnabled = true;
-            this.gViewer1.Size = new System.Drawing.Size(882, 294);
+            this.gViewer1.Size = new System.Drawing.Size(483, 314);
             this.gViewer1.TabIndex = 2;
             this.gViewer1.TightOffsetForRouting = 0.125D;
             this.gViewer1.ToolBarIsVisible = true;
@@ -111,66 +114,91 @@ namespace Tucil3Stima
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 394);
+            this.label2.Location = new System.Drawing.Point(18, 428);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(107, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Starting Vertice :";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(140, 391);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 32);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox2.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(572, 391);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 32);
-            this.textBox2.TabIndex = 5;
-            // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(402, 394);
+            this.label3.Location = new System.Drawing.Point(18, 457);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
+            this.label3.Size = new System.Drawing.Size(129, 19);
             this.label3.TabIndex = 6;
             this.label3.Text = "Destination Vertice :";
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(785, 390);
+            this.button1.Location = new System.Drawing.Point(18, 487);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(82, 22);
             this.button1.TabIndex = 7;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // FileInput
+            // 
+            this.FileInput.Location = new System.Drawing.Point(90, 63);
+            this.FileInput.Name = "FileInput";
+            this.FileInput.Size = new System.Drawing.Size(305, 23);
+            this.FileInput.TabIndex = 8;
+            // 
+            // FileName
+            // 
+            this.FileName.AutoSize = true;
+            this.FileName.Location = new System.Drawing.Point(18, 66);
+            this.FileName.Name = "FileName";
+            this.FileName.Size = new System.Drawing.Size(66, 15);
+            this.FileName.TabIndex = 9;
+            this.FileName.Text = "File Name :";
+            // 
+            // browseButton
+            // 
+            this.browseButton.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.browseButton.Location = new System.Drawing.Point(413, 63);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(82, 22);
+            this.browseButton.TabIndex = 10;
+            this.browseButton.Text = "Browse";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(153, 425);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(95, 23);
+            this.textBox1.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(153, 454);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(95, 23);
+            this.textBox2.TabIndex = 12;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 600);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(507, 610);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.browseButton);
+            this.Controls.Add(this.FileName);
+            this.Controls.Add(this.FileInput);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gViewer1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -184,10 +212,13 @@ namespace Tucil3Stima
         private System.Windows.Forms.Label label1;
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox FileInput;
+        private System.Windows.Forms.Label FileName;
+        private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

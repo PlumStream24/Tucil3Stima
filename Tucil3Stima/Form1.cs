@@ -13,21 +13,9 @@ namespace Tucil3Stima
     public partial class Form1 : Form
     {
         public Graph g;
-        public Form1(Graph input)
+        public Form1()
         {
-            this.g = input;
             InitializeComponent();
-            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
-            List<(String, String)> made = new List<(String, String)>();
-            foreach (String[] element in g.edges) 
-            {
-                if (!made.Contains((element[1], element[0]))) 
-                {
-                    graph.AddEdge(element[0], element[2], element[1]).Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
-                    made.Add((element[0], element[1]));
-                }
-            }
-            gViewer1.Graph = graph;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -88,7 +76,7 @@ namespace Tucil3Stima
                             }
                         }
                     }
-                    if (result.Item1.Contains(element.Target))
+                    else if (result.Item1.Contains(element.Target))
                     {
                         if (result.Item1.First() != element.Target)
                         {
@@ -122,6 +110,69 @@ namespace Tucil3Stima
             }
             //assigning the changed graph to the modafuckin gViewer
             gViewer1.Graph = graph;
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                String filename = openFileDialog1.FileName;
+                FileInput.Text = filename;
+            }
+
+            List<List<String>> matrix = new List<List<String>>();
+            this.g = new Graph();
+
+            // Read file
+            System.IO.StreamReader file;
+            try
+            {
+                file = new System.IO.StreamReader(FileInput.Text);
+            }
+            catch (System.IO.IOException)
+            {
+                return;
+            }
+
+            // Make dictionary
+            int index = 0;
+            String line = file.ReadLine();
+            foreach (String s in line.Split(' '))
+            {
+                g.nodeName.Add(index, s);
+                index++;
+            }
+
+            // Make adjacency matrix
+            index = 0;
+            while (!file.EndOfStream)
+            {
+                line = file.ReadLine();
+                matrix.Add(new List<String>());
+                foreach (String s in line.Split(' '))
+                {
+                    matrix[index].Add(s);
+                }
+                index++;
+            }
+
+            // Move matrix to graph
+            g.ReadMatrix(matrix);
+
+            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
+            List<(String, String)> made = new List<(String, String)>();
+            foreach (String[] element in g.edges)
+            {
+                if (!made.Contains((element[1], element[0])))
+                {
+                    graph.AddEdge(element[0], element[2], element[1]).Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                    made.Add((element[0], element[1]));
+                }
+            }
+            gViewer1.Graph = graph;
+
         }
     }
 }

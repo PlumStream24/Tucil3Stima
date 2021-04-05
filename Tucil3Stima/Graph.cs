@@ -134,15 +134,13 @@ namespace Tucil3Stima
         {
             if (manhattan.ContainsKey((start.Item1.Last(), end)))
             {
-                if (data.Count > 0)
+                if (start.Item1.Last() == end && data.First().Item1.Last() == end)
                 {
-                    if (data.First().Item1.Last() == end)
-                    {
-                        return start;
-                    }
+                    return start;   
                 }
                 foreach (String[] element in edges)
                 {
+                    // if left edge == active node and adj node unvisited
                     if (start.Item1.Last() == element[0] && !start.Item1.Contains(element[1]))
                     {
                         data.Remove(start);
