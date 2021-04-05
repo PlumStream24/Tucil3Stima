@@ -114,6 +114,8 @@ namespace Tucil3Stima
 
         private void browseButton_Click(object sender, EventArgs e)
         {
+            
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
@@ -172,6 +174,7 @@ namespace Tucil3Stima
                 }
             }
             gViewer1.Graph = graph;
+            richTextBox1.Clear(); textBox1.Clear(); textBox2.Clear();
 
         }
     }
