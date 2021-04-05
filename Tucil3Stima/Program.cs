@@ -55,7 +55,8 @@ namespace Tucil3Stima
             g.ReadMatrix(matrix);
             List<String> pain = new List<String>();
             pain.Add("S");
-            (List<String>, int) pain2 = g.AllStar((pain,0), "F", new List<(List<String>, int)>());
+            String end = "E";
+            (List<String>, int) pain2 = g.AllStar((pain,g.manhattan[(pain.Last(),end)]), end, new List<(List<String>, int)>());
             //g.AStar("S", "a");
 
             //Application.SetHighDpiMode(HighDpiMode.SystemAware);

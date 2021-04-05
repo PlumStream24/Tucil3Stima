@@ -138,19 +138,7 @@ namespace Tucil3Stima
                 {
                     if (data.First().Item1.Last() == end)
                     {
-                        List<String> tempList = data.First().Item1;
-                        int pathWeight = 0;
-                        for (int i = 0; i < tempList.Count() - 1; i++)
-                        {
-                            foreach (String[] element in edges)
-                            {
-                                if (element[0] == tempList[i] && element[1] == tempList[i + 1])
-                                {
-                                    pathWeight += Convert.ToInt32(element[2]);
-                                }
-                            }
-                        }
-                        return (tempList, pathWeight);
+                        return start;
                     }
                 }
                 foreach (String[] element in edges)
@@ -159,7 +147,7 @@ namespace Tucil3Stima
                     {
                         data.Remove(start);
                         List<String> tempList = start.Item1.ToList();
-                        int tempWeight = start.Item2 + Convert.ToInt32(element[2]) + manhattan[(element[1], end)];
+                        int tempWeight = start.Item2 - manhattan[(start.Item1.Last(), end)] + Convert.ToInt32(element[2]) + manhattan[(element[1], end)];
                         tempList.Add(element[1]);
                         data.Add((tempList, tempWeight));
                     }
