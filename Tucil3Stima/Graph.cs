@@ -134,7 +134,7 @@ namespace Tucil3Stima
         {
             if (manhattan.ContainsKey((start.Item1.Last(), end)))
             {
-                if (start.Item1.Last() == end && data.First().Item1.Last() == end)
+                if (start.Item1.Last() == end)
                 {
                     return start;   
                 }
