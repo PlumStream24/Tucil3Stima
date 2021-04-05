@@ -55,8 +55,15 @@ namespace Tucil3Stima
             g.ReadMatrix(matrix);
             List<String> pain = new List<String>();
             pain.Add("S");
-            String end = "E";
-            (List<String>, int) pain2 = g.AllStar((pain,g.manhattan[(pain.Last(),end)]), end, new List<(List<String>, int)>());
+            String end = "F";
+            if (g.manhattan.ContainsKey((pain.First(), end)))
+            {
+                (List<String>, int) pain2 = g.AllStar((pain, g.manhattan[(pain.Last(), end)]), end, new List<(List<String>, int)>());
+            }
+            else
+            {
+                Debug.WriteLine("Shit dont exist my guy");
+            }
             //g.AStar("S", "a");
 
             //Application.SetHighDpiMode(HighDpiMode.SystemAware);
