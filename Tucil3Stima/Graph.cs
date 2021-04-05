@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace Tucil3Stima
 {
-    class Graph
+    public class Graph
     {
         // Attributes
         public int numOfVertices;      //number of vertices

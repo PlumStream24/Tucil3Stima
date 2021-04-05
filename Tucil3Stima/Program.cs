@@ -53,7 +53,9 @@ namespace Tucil3Stima
 
             // Move matrix to graph
             g.ReadMatrix(matrix);
-            List<String> pain = new List<String>();
+            
+            //move A* process to a method in Form1
+            /*List<String> pain = new List<String>();
             pain.Add("S");
             String end = "F";
             if (g.manhattan.ContainsKey((pain.First(), end)))
@@ -63,13 +65,13 @@ namespace Tucil3Stima
             else
             {
                 Debug.WriteLine("Shit dont exist my guy");
-            }
+            }*/
             //g.AStar("S", "a");
 
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1(g));
         }
     }
 }
