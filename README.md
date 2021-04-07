@@ -14,6 +14,7 @@ User can use the Browse button to choose the file. <br>
 
 ### Requirement
 * Windows
+* .NET Framework 3.1
 
 ### Author
 * Muhammad Galih R R - 13519017
