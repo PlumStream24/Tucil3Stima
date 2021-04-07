@@ -1,0 +1,8 @@
+Rancakendal WarungLela CigadungRayaBarat TubagusIsmail DagoPakar Tahura Cikutra
+0 60 90 0 200 0 0
+60 0 0 0 100 0 0
+90 0 0 100 200 0 160
+0 0 100 0 0 0 150
+200 100 200 0 0 120 0
+0 0 0 0 120 0 0
+0 0 160 150 0 0 0
