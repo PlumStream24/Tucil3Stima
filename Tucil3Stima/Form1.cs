@@ -13,13 +13,30 @@ namespace Tucil3Stima
     public partial class Form1 : Form
     {
         public Graph g;
+        public String miku;
+        public bool loaded;
         public Form1()
         {
             InitializeComponent();
+            this.loaded = false;
+            this.miku = "　　　 　　/＾>》, -―‐‐＜＾}\n" +
+"　　　 　./:::::::/,≠´:::::;::::::::ヽ.\n" +
+"　　　　/:::::::〃:::::::::／}::::丿ハ\n" +
+"　　　./:::::::::i{l|:::::／　ﾉ／ }::::::}\n" +
+"　　 /:::::::::::瓜イ＞　´＜ ,':::::ﾉ\n" +
+"　 ./:::::::::::::|ﾉﾍ.{､　( ﾌ_ノﾉイ\n" +
+"　 |:::::::::::::::|　／}｀ｽ/￣￣￣　/  Can't compute!!!\n" +
+".　|::::::::::::::::|(_:::::つ/            /\n" +
+".￣￣￣￣￣＼/＿＿＿＿/￣￣￣\n";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!this.loaded)
+            {
+                return;
+            }
+
             Microsoft.Msagl.Drawing.Graph graph = gViewer1.Graph;
             //this bottom 2 loops are basically a REEESEEETTTT for the colours of the graph
             //colouring the nodes that are not the default colour
@@ -106,7 +123,7 @@ namespace Tucil3Stima
             }
             else
             {
-                richTextBox1.Text = "Cannot compute....ASSHOLE";
+                richTextBox1.Text = this.miku;
             }
             //assigning the changed graph to the modafuckin gViewer
             gViewer1.Graph = graph;
@@ -176,7 +193,7 @@ namespace Tucil3Stima
             }
             gViewer1.Graph = graph;
             richTextBox1.Clear(); textBox1.Clear(); textBox2.Clear();
-
+            this.loaded = true;
         }
     }
 }

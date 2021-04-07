@@ -47,11 +47,11 @@ namespace Tucil3Stima
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(12, 523);
+            this.richTextBox1.Font = new System.Drawing.Font("MS PGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 534);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(487, 75);
+            this.richTextBox1.Size = new System.Drawing.Size(487, 97);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -100,7 +100,7 @@ namespace Tucil3Stima
             this.gViewer1.SaveButtonVisible = true;
             this.gViewer1.SaveGraphButtonVisible = true;
             this.gViewer1.SaveInVectorFormatEnabled = true;
-            this.gViewer1.Size = new System.Drawing.Size(483, 314);
+            this.gViewer1.Size = new System.Drawing.Size(483, 335);
             this.gViewer1.TabIndex = 2;
             this.gViewer1.TightOffsetForRouting = 0.125D;
             this.gViewer1.ToolBarIsVisible = true;
@@ -114,7 +114,7 @@ namespace Tucil3Stima
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(18, 428);
+            this.label2.Location = new System.Drawing.Point(18, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 15);
             this.label2.TabIndex = 3;
@@ -124,7 +124,7 @@ namespace Tucil3Stima
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(18, 457);
+            this.label3.Location = new System.Drawing.Point(18, 477);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 19);
             this.label3.TabIndex = 6;
@@ -134,7 +134,7 @@ namespace Tucil3Stima
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(18, 487);
+            this.button1.Location = new System.Drawing.Point(18, 507);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 22);
@@ -177,7 +177,7 @@ namespace Tucil3Stima
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(153, 425);
+            this.textBox1.Location = new System.Drawing.Point(153, 446);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(95, 23);
             this.textBox1.TabIndex = 11;
@@ -185,7 +185,7 @@ namespace Tucil3Stima
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(153, 454);
+            this.textBox2.Location = new System.Drawing.Point(153, 474);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(95, 23);
             this.textBox2.TabIndex = 12;
@@ -194,7 +194,7 @@ namespace Tucil3Stima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 610);
+            this.ClientSize = new System.Drawing.Size(507, 643);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.browseButton);
